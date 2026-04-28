@@ -9,9 +9,13 @@ HA-DW (History-Aware Adaptive Difficulty Weighting) is a framework for:
 3. **Plug-and-Play Advantage Reweighting**: Correcting biased advantage signals through adaptive prompt-level weighting without changing the underlying RLVR framework
 
 ## Dataset
-You can find the datasets constructed by this work in the following links:
-[MATH-Train](https://huggingface.co/datasets/DigitalLearningGmbH/MATH-lighteval) This dataset contains competition-style math problems and provides rule-based ground-truth answers, which is suitable for RLVR training on reasoning tasks.
-[MATH500](https://huggingface.co/datasets/HuggingFaceH4/MATH-500) MATH-500 contains 500 problems sampled from the MATH benchmark and was created by OpenAI in the *Let's Verify Step by Step* work. It is commonly used as a held-out benchmark for evaluating LLM reasoning performance on competition-level math problems.
+
+You can find the datasets used in this work from the following links:
+
+- [MATH-Train](https://huggingface.co/datasets/DigitalLearningGmbH/MATH-lighteval): This dataset contains competition-style math problems and provides rule-based ground-truth answers, making it suitable for RLVR training on reasoning tasks.
+
+- [MATH500](https://huggingface.co/datasets/HuggingFaceH4/MATH-500): MATH-500 contains 500 problems sampled from the MATH benchmark and was created by OpenAI in the *Let's Verify Step by Step* work. It is commonly used as a held-out benchmark for evaluating LLM reasoning performance on competition-level math problems.
+
 
 ### Dataset Format
 The training data should be stored in Parquet format. Each row contains one prompt example with the following fields:
