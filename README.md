@@ -8,17 +8,33 @@ HA-DW (History-Aware Adaptive Difficulty Weighting) is a framework for:
 2. **History-Aware Difficulty Estimation**: Maintaining an evolving difficulty anchor that incorporates long-term reward trends across batches
 3. **Plug-and-Play Advantage Reweighting**: Correcting biased advantage signals through adaptive prompt-level weighting without changing the underlying RLVR framework
 
+## Installation
+Our installation mirrors that of setting up verl(https://github.com/verl-project/verl). Create the environment required for training through the following steps.
+
+### Setup
+
+```bash
+# Clone the repository
+git clone <repository-url>
+cd HA-DW
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
 ## Dataset
 
-You can find the datasets used in this work from the following links:
+Download and preprocess data, change the local path appropriately according to your machine. You can find the datasets used in this work from the following links:
 
 - [MATH-Train](https://huggingface.co/datasets/DigitalLearningGmbH/MATH-lighteval): This dataset contains competition-style math problems and provides rule-based ground-truth answers, making it suitable for RLVR training on reasoning tasks.
 
 - [MATH500](https://huggingface.co/datasets/HuggingFaceH4/MATH-500): MATH-500 contains 500 problems sampled from the MATH benchmark and was created by OpenAI in the *Let's Verify Step by Step* work. It is commonly used as a held-out benchmark for evaluating LLM reasoning performance on competition-level math problems.
 
+- [AMC23](https://huggingface.co/datasets/HuggingFaceH4/MATH-500): AMC23 is a mathematics benchmark derived from the 2023 American Mathematics Competitions, designed to evaluate models’ problem-solving ability on challenging competition-style math questions.
+
 
 ### Dataset Format
-The training data should be stored in Parquet format. Each row contains one prompt example with the following fields:
+The training data should be stored in Parquet format and processed into the format shown in the example below. Each row contains one prompt example with the following fields:
 
 - `data_source`: the source of the dataset
 - `prompt`: a list of chat messages, where each message contains `role` and `content`
@@ -44,34 +60,10 @@ An example row is shown below:
 }
 ```
 
-## Model
-
-Please download the base model from Hugging Face:
-
-https://huggingface.co/Qwen/Qwen3-4B-Base
-
-Then set the model path in the training script:
-
-```bash
-MODEL_PATH=/path/to/Qwen3-4B-Base
-```
-
-## Installation
-
-### Setup
-
-```bash
-# Clone the repository
-git clone <repository-url>
-cd HA-DW
-
-# Install dependencies
-pip install -r requirements.txt
-```
 
 ## Training
-
-Please refer to the `hadw_trainer` in the `examples` folder for training using GRPO and GSPO with HA-DW. To quickly start training, you can use the following command as an example:
+- Setup path configurations in `examples/hadw_trainer/grpo_hadw.sh`
+- Please refer to the `hadw_trainer` in the `examples` folder for training using GRPO and GSPO with HA-DW. To quickly start training, you can use the following command as an example:
 
 ```bash
 bash examples/hadw_trainer/grpo_hadw.sh
