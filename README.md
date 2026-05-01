@@ -1,4 +1,4 @@
-# The Hidden Bias in Group-Relative Reinforcement Learning
+# HA-DW: On the Bias of Group-Based Advantage Estimation
 
 
 ## Overview
@@ -9,7 +9,7 @@ HA-DW (History-Aware Adaptive Difficulty Weighting) is a framework for:
 3. **Plug-and-Play Advantage Reweighting**: Correcting biased advantage signals through adaptive prompt-level weighting without changing the underlying RLVR framework
 
 ## Installation
-Our installation mirrors that of setting up verl(https://github.com/verl-project/verl). Create the environment required for training through the following steps.
+Our installation mirrors that of setting up [verl](https://github.com/verl-project/verl). Create the environment required for training through the following steps.
 
 ### Setup
 
